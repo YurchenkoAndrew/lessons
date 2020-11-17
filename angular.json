@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "lessons"
+  "defaultProject": "lessons",
+  "cli": {
+    "analytics": "9ff9c2d0-d115-4b73-826d-4fb56ebd50c2"
+  }
 }
