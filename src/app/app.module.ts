@@ -11,6 +11,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './shared/auth.interceptor';
+import {registerLocaleData} from '@angular/common';
+import ruLocale from '@angular/common/locales/ru';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
+
+registerLocaleData(ruLocale, 'ru');
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -30,7 +36,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
